@@ -9,86 +9,149 @@ const allProducts = [
     id: 1,
     name: "Classic Round Side Table",
     category: "Tables",
-    image: "/images/products/table1.png",
+    images: ["/images/products/table-placeholder.png"],
     description: "Modern round side table with rattan top and black frame",
   },
   {
     id: 2,
     name: "Solid Wood Side Table",
     category: "Tables",
-    image: "/images/products/table2.png",
+    images: ["/images/products/table-placeholder.png"],
     description: "Natural solid wood side table with tripod base",
   },
   {
     id: 3,
-    name: "Carved Storage Cabinet",
+    name: "Ornate Carved Cabinet",
     category: "Storage Boxes",
-    image: "/images/products/storage1.png",
+    images: [
+      "/images/products/storage-1-1.png",
+      "/images/products/storage-1-2.png",
+    ],
     description: "Ornately hand-carved wooden cabinet with brass handle",
   },
   {
     id: 4,
     name: "Carved Chest Box",
     category: "Storage Boxes",
-    image: "/images/products/storage2.png",
+    images: ["/images/products/storage-2-1.png"],
     description: "Hand-carved decorative chest with floral motifs",
   },
   {
     id: 5,
     name: "Heart Shaped Bowl Set",
     category: "Bowls",
-    image: "/images/products/bowl1.png",
-    description: "Set of 3 heart-shaped wooden bowls for serving",
+    images: [
+      "/images/products/bowl-1-1.png",
+      "/images/products/bowl-1-2.png",
+    ],
+    description: "Set of heart-shaped wooden bowls for serving",
   },
   {
     id: 6,
-    name: "Natural Bark Bowl",
+    name: "Artisan Wooden Bowl",
     category: "Bowls",
-    image: "/images/products/bowl2.png",
-    description: "Rustic natural bark wooden bowl with smooth interior",
+    images: ["/images/products/bowl-2-1.png"],
+    description: "Rustic artisan wooden bowl with smooth interior",
   },
   {
     id: 7,
-    name: "Nested Serving Trays",
-    category: "Trays",
-    image: "/images/products/tray1.png",
-    description: "Set of 2 nested wooden serving trays with handles",
+    name: "Carved Bowl Collection",
+    category: "Bowls",
+    images: [
+      "/images/products/bowl-3-1.png",
+      "/images/products/bowl-3-2.png",
+    ],
+    description: "Premium carved wooden bowl collection",
   },
   {
     id: 8,
-    name: "Spice Box with Steel Bowls",
-    category: "Spice Boxes",
-    image: "/images/products/spice1.png",
-    description: "Wooden spice box with glass lid and steel compartments",
+    name: "Nested Serving Trays",
+    category: "Trays",
+    images: ["/images/products/tray-placeholder.png"],
+    description: "Set of nested wooden serving trays with handles",
   },
   {
     id: 9,
-    name: "Engraved Coaster Set",
-    category: "Coasters",
-    image: "/images/products/coaster1.png",
-    description: "Hand-carved floral coaster set with wooden holder",
+    name: "Premium Spice Box",
+    category: "Spice Boxes",
+    images: [
+      "/images/products/spice-1-1.png",
+      "/images/products/spice-1-2.png",
+      "/images/products/spice-1-3.png",
+      "/images/products/spice-1-4.png",
+      "/images/products/spice-1-5.png",
+    ],
+    description: "Wooden spice box with glass lid and steel compartments",
   },
   {
     id: 10,
-    name: "Bark Wood Coaster",
-    category: "Coasters",
-    image: "/images/products/coaster2.png",
-    description: "Natural bark wood coasters with smooth interior",
+    name: "Artisan Spice Box",
+    category: "Spice Boxes",
+    images: [
+      "/images/products/spice-2-1.png",
+      "/images/products/spice-2-2.png",
+      "/images/products/spice-2-3.png",
+    ],
+    description: "Hand-carved wooden spice box with multiple compartments",
   },
   {
     id: 11,
+    name: "Classic Spice Box",
+    category: "Spice Boxes",
+    images: [
+      "/images/products/spice-3-1.png",
+      "/images/products/spice-3-2.png",
+      "/images/products/spice-3-3.png",
+    ],
+    description: "Traditional wooden spice box with brass fittings",
+  },
+  {
+    id: 12,
+    name: "Engraved Coaster Set",
+    category: "Coasters",
+    images: [
+      "/images/products/coaster-1-1.png",
+      "/images/products/coaster-1-2.png",
+    ],
+    description: "Hand-carved floral coaster set with wooden holder",
+  },
+  {
+    id: 13,
+    name: "Natural Wood Coaster",
+    category: "Coasters",
+    images: ["/images/products/coaster-2-1.png"],
+    description: "Natural bark wood coasters with smooth interior",
+  },
+  {
+    id: 14,
     name: "Handwoven Rugs",
     category: "Textiles",
-    image: "/images/products/textile1.png",
+    images: [],
     description: "Premium handwoven rugs in traditional patterns",
     comingSoon: true,
   },
   {
-    id: 12,
+    id: 15,
     name: "Decorative Mats",
     category: "Textiles",
-    image: "/images/products/textile2.png",
+    images: [],
     description: "Artisan woven mats for home and commercial use",
+    comingSoon: true,
+  },
+  {
+    id: 16,
+    name: "Brass Metal Decor",
+    category: "Metal Craft",
+    images: [],
+    description: "Handcrafted brass decorative items for home and gifting",
+    comingSoon: true,
+  },
+  {
+    id: 17,
+    name: "Metal Art Frames",
+    category: "Metal Craft",
+    images: [],
+    description: "Decorative metal art frames with intricate designs",
     comingSoon: true,
   },
 ]
@@ -102,6 +165,7 @@ const categories = [
   "Spice Boxes",
   "Coasters",
   "Textiles",
+  "Metal Craft",
 ]
 
 export default function ProductsPage() {
@@ -122,8 +186,7 @@ export default function ProductsPage() {
               Our <span className="text-[#C9A84C]">Products</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              Explore our curated collection of premium
-              handcrafted wooden products
+              Explore our curated collection of premium handcrafted wooden products
             </p>
           </div>
         </div>
@@ -137,14 +200,14 @@ export default function ProductsPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                className={"px-6 py-2 rounded-full transition-all duration-300 " + (
                   selectedCategory === category
                     ? "bg-[#C9A84C] text-white shadow-md"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                )}
               >
                 {category}
-                {category === "Textiles" && (
+                {(category === "Textiles" || category === "Metal Craft") && (
                   <span className="ml-2 text-xs bg-[#1B2B5E] text-white px-2 py-0.5 rounded-full">
                     Soon
                   </span>
@@ -165,7 +228,7 @@ export default function ProductsPage() {
                 id={product.id}
                 name={product.name}
                 category={product.category}
-                image={product.image}
+                images={product.images}
                 description={product.description}
                 comingSoon={product.comingSoon}
               />
@@ -181,8 +244,7 @@ export default function ProductsPage() {
             Can't Find What You're Looking For?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            We can source custom products based on your
-            specific requirements.
+            We can source custom products based on your specific requirements.
           </p>
           <Link href="/contact">
             <button className="bg-[#C9A84C] hover:bg-[#b89740] text-white px-12 py-3 rounded-md text-lg font-medium transition-colors">

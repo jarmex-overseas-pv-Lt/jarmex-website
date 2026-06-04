@@ -24,16 +24,35 @@ export default function ContactPage() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!formData.disclaimer) {
-      alert("Please accept the disclaimer to proceed.")
-      return
-    }
-    setLoading(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    setLoading(false)
-    setSubmitted(true)
+  e.preventDefault()
+  if (!formData.disclaimer) {
+    alert("Please accept the disclaimer to proceed.")
+    return
   }
+  setLoading(true)
+  try {
+    const response = await fetch("/api/message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      }),
+    })
+    if (response.ok) {
+      setSubmitted(true)
+    } else {
+      alert("Something went wrong. Please try again.")
+    }
+  } catch (error) {
+    console.error("Error:", error)
+    alert("Something went wrong. Please try again.")
+  } finally {
+    setLoading(false)
+  }
+}
 
   return (
     <div>

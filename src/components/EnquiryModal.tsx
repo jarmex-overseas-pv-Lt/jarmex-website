@@ -1,5 +1,6 @@
 "use client"
 
+import { ImageCarousel } from "@/components/ImageCarousel"
 import { useState, useEffect } from "react"
 import { X, CheckCircle } from "lucide-react"
 import { PhoneInput } from "@/components/PhoneInput"
@@ -8,7 +9,7 @@ interface Product {
   id: number
   name: string
   category: string
-  image: string
+  images: string[]
   description?: string
 }
 
@@ -118,8 +119,12 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
 
             {/* Left — Product Info */}
             <div className="bg-gray-50 p-8 rounded-l-2xl">
-              <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-[#1B2B5E]">
-                <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+              <div className="aspect-square rounded-lg overflow-hidden mb-4 bg-[#F5F0E8]">
+                <ImageCarousel
+                  images={product.images}
+                  alt={product.name}
+                  autoPlay={false}
+                />
               </div>
               <div className="inline-block bg-[#C9A84C] text-white text-xs px-3 py-1 rounded-full mb-3">
                 {product.category}
@@ -134,7 +139,6 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
               <p className="text-sm text-gray-600 mb-6">Fill in your details and we will get back to you within 24 hours</p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
                   <input type="text" required value={formData.fullName} onChange={(e) => setFormData({ ...formData, fullName: e.target.value })} placeholder="Enter your full name" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C9A84C]" />
@@ -187,7 +191,6 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
                 >
                   {loading ? "Sending..." : "Send Enquiry"}
                 </button>
-
               </form>
             </div>
           </div>
