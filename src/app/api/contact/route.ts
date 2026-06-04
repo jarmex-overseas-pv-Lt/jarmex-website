@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "Jarmex Website <onboarding@resend.dev>",
+      from: "Jarmex Website <sales@jarmexoverseas.com>",
       to: "sales@jarmexoverseas.com", 
       subject: `New Enquiry from ${name}`,
       html: `
