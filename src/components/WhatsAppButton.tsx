@@ -1,5 +1,5 @@
 export function WhatsAppButton() {
-  const phone = "17059777971"
+  const phone = "917028807311"
   const message = "Hello Jarmex Overseas! I am interested in your handcrafted wooden products. Please share more details."
   const encodedMessage = encodeURIComponent(message)
   const whatsappUrl = "https://wa.me/" + phone + "?text=" + encodedMessage
