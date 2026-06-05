@@ -28,12 +28,12 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/logo.png"
-              alt="Jarmex Overseas Pvt. Ltd."
-              width={160}
-              height={60}
-              className="object-contain"
-              priority
+               src="/images/logo.png"
+               alt="Jarmex Overseas Pvt. Ltd."
+               width={120}
+               height={50}
+               className="object-contain h-14 w-auto"
+               priority
             />
           </Link>
 
