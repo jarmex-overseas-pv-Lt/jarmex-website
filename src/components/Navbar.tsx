@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X, Download } from "lucide-react"
 
@@ -26,14 +27,14 @@ export function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-[#1B2B5E]">
-                JARMEX
-              </span>
-              <span className="text-xs text-[#C9A84C] tracking-wider">
-                OVERSEAS PVT. LTD.
-              </span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="Jarmex Overseas Pvt. Ltd."
+              width={160}
+              height={60}
+              className="object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
