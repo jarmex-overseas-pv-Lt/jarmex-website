@@ -2,15 +2,17 @@
 
 import { useState } from "react"
 import { Mail, Phone, MapPin, Send, Globe } from "lucide-react"
+import { PhoneInput } from "@/components/PhoneInput"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     message: "",
     disclaimer: false,
   })
+  const [phone, setPhone] = useState("")
+  const [countryCode, setCountryCode] = useState("+91")
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -24,35 +26,35 @@ export default function ContactPage() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  if (!formData.disclaimer) {
-    alert("Please accept the disclaimer to proceed.")
-    return
-  }
-  setLoading(true)
-  try {
-    const response = await fetch("/api/message", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        message: formData.message,
-      }),
-    })
-    if (response.ok) {
-      setSubmitted(true)
-    } else {
-      alert("Something went wrong. Please try again.")
+    e.preventDefault()
+    if (!formData.disclaimer) {
+      alert("Please accept the disclaimer to proceed.")
+      return
     }
-  } catch (error) {
-    console.error("Error:", error)
-    alert("Something went wrong. Please try again.")
-  } finally {
-    setLoading(false)
+    setLoading(true)
+    try {
+      const response = await fetch("/api/message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: `${countryCode} ${phone}`,
+          message: formData.message,
+        }),
+      })
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        alert("Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error:", error)
+      alert("Something went wrong. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
-}
 
   return (
     <div>
@@ -134,14 +136,13 @@ export default function ContactPage() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number <span className="text-red-500">*</span>
                     </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
+                    <PhoneInput
+                      value={phone}
+                      onChange={setPhone}
+                      countryCode={countryCode}
+                      onCountryCodeChange={setCountryCode}
                       required
-                      placeholder="+1 234 567 8900"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:border-transparent"
+                      placeholder="Enter phone number"
                     />
                   </div>
 
@@ -222,8 +223,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-semibold text-[#1B2B5E] mb-1">WhatsApp & Phone</p>
-                    <a href="tel:+17059777971" className="text-gray-600 hover:text-[#C9A84C] transition-colors">
-                      +1 705 977 7971
+                    <a href="tel:+917028807311" className="text-gray-600 hover:text-[#C9A84C] transition-colors">
+                      +91 70288 07311
                     </a>
                   </div>
                 </div>
