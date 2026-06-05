@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { supabaseServer } from "@/lib/supabase"
 import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { error } = await supabase
+    const { error } = await supabaseServer
       .from("contact_messages")
       .insert([{ name, email, phone, message }])
 

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { supabase } from "@/lib/supabase"
+import { supabaseServer } from "@/lib/supabase"
 import { Resend } from "resend"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const { error } = await supabase
+    const { error } = await supabaseServer
       .from("enquiries")
       .insert([{
         name,
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
     await resend.emails.send({
       from: "Jarmex Website <sales@jarmexoverseas.com>",
-      to: "sales@jarmexoverseas.com", 
+      to: "sales@jarmexoverseas.com",
       subject: `New Enquiry from ${name}`,
       html: `
         <h2>New Product Enquiry</h2>
