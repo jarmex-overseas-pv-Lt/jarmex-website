@@ -6,7 +6,6 @@ export default function TermsPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Terms & <span className="text-[#C9A84C]">Conditions</span>
           </h1>
-          <p className="text-xl text-gray-200">Effective Date: June 2026</p>
         </div>
       </section>
 

@@ -6,7 +6,6 @@ export default function PrivacyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Privacy <span className="text-[#C9A84C]">Policy</span>
           </h1>
-          <p className="text-xl text-gray-200">Effective Date: June 2026</p>
         </div>
       </section>
 

@@ -72,22 +72,22 @@ const products = [
 ]
 
 const stats = [
-  { icon: TrendingUp, label: "Years", value: "1+" },
-  { icon: Package, label: "Categories", value: "6+" },
-  { icon: Globe, label: "Reach", value: "Worldwide" },
-  { icon: Users, label: "Clients", value: "Growing" },
+  { icon: Package, label: "SKUs Available", value: "500+" },
+  { icon: TrendingUp, label: "Wood Types", value: "3" },
+  { icon: Globe, label: "Product Categories", value: "6+" },
+  { icon: Truck, label: "Shipping", value: "Worldwide" },
 ]
 
 const features = [
   {
     icon: Shield,
     title: "Handcrafted Quality",
-    description: "Each piece is meticulously crafted by skilled artisans using premium wood.",
+    description: "Each piece is meticulously crafted by skilled artisans with 10+ years of woodworking experience.",
   },
   {
     icon: Package,
     title: "Bulk Export Ready",
-    description: "Scalable production to meet large B2B orders with consistent quality.",
+    description: "MOQ from 10 units with capacity to fulfil large hospitality & project orders.",
   },
   {
     icon: Truck,
@@ -109,8 +109,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-[#C9A84C]">Premium Handcrafted</span>{" "}
-              Wooden Products
+              <span className="text-[#C9A84C]">Handcrafted Indian Wood</span>{" "}
+              Furniture & Décor for Hospitality & Luxury Interiors
             </h1>
             <p className="text-xl md:text-2xl mb-4 text-gray-200">
               Crafted in India, Delivered Worldwide
