@@ -11,7 +11,7 @@ export default function PrivacyPage() {
       </section>
 
       <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-8 sm:px-12 lg:px-16 py-8">
 
           <p className="text-gray-600 mb-8">This Privacy Policy describes how JARMEX Overseas Private Limited ("Company", "we", "our", or "us") collects, uses, stores, and protects information obtained through jarmexoverseas.com ("Website"). By using this Website, you consent to the practices described in this Privacy Policy.</p>
 
