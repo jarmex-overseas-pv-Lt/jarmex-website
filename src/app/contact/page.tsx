@@ -9,7 +9,6 @@ export default function ContactPage() {
     name: "",
     email: "",
     message: "",
-    disclaimer: false,
   })
   const [phone, setPhone] = useState("")
   const [countryCode, setCountryCode] = useState("+91")
@@ -21,16 +20,8 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({ ...prev, disclaimer: e.target.checked }))
-  }
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.disclaimer) {
-      alert("Please accept the disclaimer to proceed.")
-      return
-    }
     setLoading(true)
     try {
       const response = await fetch("/api/message", {
@@ -162,22 +153,6 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {/* Disclaimer Checkbox */}
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      id="disclaimer"
-                      checked={formData.disclaimer}
-                      onChange={handleCheckbox}
-                      className="mt-1 w-4 h-4 accent-[#C9A84C]"
-                    />
-                    <label htmlFor="disclaimer" className="text-sm text-gray-600">
-                      I understand that Jarmex Overseas Pvt. Ltd.
-                      acts as a trading intermediary and holds no
-                      liability for export/import transactions.
-                    </label>
-                  </div>
-
                   {/* Submit Button */}
                   <button
                     type="submit"
@@ -236,8 +211,8 @@ export default function ContactPage() {
                   <div>
                     <p className="font-semibold text-[#1B2B5E] mb-1">Office Address</p>
                     <p className="text-gray-600">
-                      Balewadi Plaza, Flat 301,<br />
-                      Nr Mitcon Institute, Baner Gaon,<br />
+                      TBL Space, 301, Balewadi Plaza,<br />
+                      Patil Nagar, Balewadi,<br />
                       Pune 411045, Maharashtra, India
                     </p>
                   </div>

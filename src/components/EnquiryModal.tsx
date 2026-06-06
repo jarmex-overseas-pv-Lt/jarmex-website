@@ -28,7 +28,6 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
     country: "",
     destinationPort: "",
     quantity: "",
-    agreeToDisclaimer: false,
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -45,7 +44,6 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
           country: "",
           destinationPort: "",
           quantity: "",
-          agreeToDisclaimer: false,
         })
       }, 300)
     }
@@ -70,10 +68,6 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!formData.agreeToDisclaimer) {
-      alert("Please agree to the disclaimer to continue.")
-      return
-    }
     setLoading(true)
     try {
       const response = await fetch("/api/contact", {
@@ -177,17 +171,10 @@ export function EnquiryModal({ isOpen, onClose, product }: EnquiryModalProps) {
                   <input type="text" required value={formData.quantity} onChange={(e) => setFormData({ ...formData, quantity: e.target.value })} placeholder="e.g. 500 units, 2 containers" className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#C9A84C]" />
                 </div>
 
-                <div className="flex items-start gap-3 pt-2">
-                  <input type="checkbox" id="disclaimer" checked={formData.agreeToDisclaimer} onChange={(e) => setFormData({ ...formData, agreeToDisclaimer: e.target.checked })} className="mt-1 w-4 h-4 accent-[#C9A84C]" />
-                  <label htmlFor="disclaimer" className="text-xs text-gray-600 leading-relaxed">
-                    I understand that Jarmex Overseas Pvt. Ltd. acts as a trading intermediary and holds no liability for export/import transactions, shipping, customs or delivery.
-                  </label>
-                </div>
-
                 <button
                   type="submit"
-                  disabled={!formData.agreeToDisclaimer || loading}
-                  className="w-full bg-[#C9A84C] hover:bg-[#b89740] disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded-md font-medium transition-colors"
+                  disabled={loading}
+                  className="w-full bg-[#C9A84C] hover:bg-[#b89740] disabled:opacity-50 disabled:cursor-not-allowed text-white py-3 rounded-md font-medium transition-colors"
                 >
                   {loading ? "Sending..." : "Send Enquiry"}
                 </button>
